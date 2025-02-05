@@ -1,5 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { ContactoComponent } from './shared/contacto/contacto.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
