@@ -1,12 +1,22 @@
 import { Component } from '@angular/core';
+import { Foto } from '../../interfaz/foto';
+import { RecursosService } from '../../servicios/recursos.service';
 
 @Component({
   selector: 'app-tarjeta',
   templateUrl: './tarjeta.component.html',
-  styleUrl: './tarjeta.component.css'
+  styleUrl: './tarjeta.component.css',
+  providers: [RecursosService]
 })
 export class TarjetaComponent {
-  tarjetas:any[] = [
+    fotos: Foto[] = [];
+  constructor(recursosService : RecursosService){
+    recursosService.obtenerDatos().subscribe(respuesta => {
+      this.fotos = respuesta as Array<Foto>
+    })
+  }
+  
+  /**tarjetas:any[] = [
     { id: 1, texto: "Disfruta de nuestra exclusiva selección de cócteles preparados por expertos mixólogos.", tiempo: "5 mins" },
     { id: 2, texto: "Prueba nuestras hamburguesas gourmet con ingredientes frescos y de la mejor calidad.", tiempo: "7 mins" },
     { id: 3, texto: "Cada viernes tenemos música en vivo con las mejores bandas locales. ¡No te lo pierdas!", tiempo: "12 mins" },
@@ -16,6 +26,6 @@ export class TarjetaComponent {
     { id: 7, texto: "Reserva una mesa para celebraciones especiales y disfruta de una experiencia inolvidable.", tiempo: "10 mins" },
     { id: 8, texto: "No te vayas sin probar nuestros postres caseros, el toque dulce perfecto para tu noche.", tiempo: "7 mins" },
     { id: 9, texto: "Ambiente cálido y acogedor con una decoración moderna que te hará sentir como en casa.", tiempo: "4 mins" }
-  ];
+  ];*/
 }
 
