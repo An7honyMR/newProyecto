@@ -1,0 +1,29 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">UserID</th>
+        <th scope="col">ID Foto</th>
+        <th scope="col">Título</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (tabla of tablas; track tabla.id) {
+        <tr>
+          <td>{{tabla.userId}}</td>
+          <td>{{tabla.id}}</td>
+          <td>{{tabla.title}}</td>
+          <td>
+              <button type="button" class="tn btn-outline-secondary" (click)="obtenerId(tabla.id)">
+                <i class="bi bi-info-circle"></i> Ver
+              </button>
+              
+            </td>
+        </tr>
+      } @empty {
+        <tr>
+          <td colspan="4" class="text-center">No hay datos disponibles.</td>
+        </tr>
+      }
+    </tbody>
+</table>

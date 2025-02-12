@@ -1,13 +1,19 @@
 import { Component } from '@angular/core';
 import { Foto } from '../../interfaz/foto';
 import { RecursosService } from '../../servicios/recursos.service';
+//import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-tarjeta',
+  standalone: true,
+  imports: [HttpClientModule],
   templateUrl: './tarjeta.component.html',
   styleUrl: './tarjeta.component.css',
   providers: [RecursosService]
 })
+
+
 export class TarjetaComponent {
     fotos: Foto[] = [];
   constructor(recursosService : RecursosService){
